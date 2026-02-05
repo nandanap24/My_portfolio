@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Projects | Nandana P</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      html,
+      body {
+        background: #0d0208;
+        background-image:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(138, 43, 226, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(75, 0, 130, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(94, 166, 217, 0.03) 0%,
+            transparent 50%
+          );
+        background-attachment: fixed;
+        font-family: "Ubuntu Mono", monospace;
+        color: #d4c4d3;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          repeating-linear-gradient(
+            0deg,
+            rgba(138, 226, 52, 0.03) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(138, 226, 52, 0.03) 3px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(138, 226, 52, 0.03) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(138, 226, 52, 0.03) 3px
+          );
+        pointer-events: none;
+        opacity: 0.4;
+        animation: gridShift 20s linear infinite;
+      }
+
+      @keyframes gridShift {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(50px, 50px);
+        }
+      }
+
+      /* ─── navigation ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 30px 40px;
+        z-index: 1000;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        color: #d4c4d3;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: #8ae234;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #8ae234;
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* ─── main content ─── */
+      main {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 120px 40px 60px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 80px;
+        opacity: 0;
+        animation: fadeInDown 1s ease forwards;
+      }
+
+      @keyframes fadeInDown {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page-title {
+        font-size: 52px;
+        color: #8ae234;
+        margin-bottom: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        animation: titleGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes titleGlow {
+        0% {
+          text-shadow:
+            0 0 10px rgba(138, 226, 52, 0.5),
+            0 0 20px rgba(138, 226, 52, 0.3),
+            0 0 30px rgba(138, 226, 52, 0.2);
+        }
+        100% {
+          text-shadow:
+            0 0 20px rgba(138, 226, 52, 0.8),
+            0 0 30px rgba(138, 226, 52, 0.5),
+            0 0 40px rgba(138, 226, 52, 0.3);
+        }
+      }
+
+      .page-subtitle {
+        font-size: 18px;
+        color: #5ea6d9;
+        letter-spacing: 1px;
+      }
+
+      /* ─── project section ─── */
+      .project-section {
+        margin-bottom: 100px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      .project-section:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .project-section:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .project-section:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .project-container {
+        background: rgba(30, 20, 32, 0.5);
+        border: 1px solid rgba(138, 226, 52, 0.2);
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .project-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(138, 226, 52, 0.08),
+          transparent
+        );
+        transition: left 0.8s ease;
+      }
+
+      .project-container:hover::before {
+        left: 100%;
+      }
+
+      .project-container:hover {
+        border-color: rgba(138, 226, 52, 0.5);
+        box-shadow:
+          0 10px 40px rgba(138, 43, 226, 0.3),
+          0 0 80px rgba(138, 226, 52, 0.1);
+        transform: translateY(-5px);
+      }
+
+      .project-header {
+        background: linear-gradient(
+          135deg,
+          rgba(138, 226, 52, 0.15),
+          rgba(94, 166, 217, 0.15)
+        );
+        padding: 35px 40px;
+        border-bottom: 2px solid rgba(138, 226, 52, 0.3);
+        position: relative;
+      }
+
+      .project-number {
+        font-size: 14px;
+        color: #edd400;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        display: inline-block;
+        padding: 5px 15px;
+        background: rgba(237, 212, 0, 0.1);
+        border-left: 3px solid #edd400;
+      }
+
+      .project-title {
+        font-size: 32px;
+        color: #8ae234;
+        font-weight: 700;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .project-container:hover .project-title {
+        color: #edd400;
+        text-shadow: 0 0 20px rgba(237, 212, 0, 0.5);
+      }
+
+      .project-tagline {
+        font-size: 16px;
+        color: #5ea6d9;
+        line-height: 1.6;
+      }
+
+      .project-body {
+        padding: 40px;
+      }
+
+      .project-description {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #d4c4d3;
+        margin-bottom: 35px;
+      }
+
+      .features-section {
+        margin-bottom: 35px;
+      }
+
+      .section-label {
+        font-size: 18px;
+        color: #edd400;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-label::before {
+        content: "";
+        width: 4px;
+        height: 20px;
+        background: linear-gradient(180deg, #8ae234, #5ea6d9);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .feature-item {
+        background: rgba(46, 34, 48, 0.5);
+        border-left: 3px solid #5ea6d9;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .feature-item:hover {
+        background: rgba(56, 44, 58, 0.7);
+        border-left-color: #8ae234;
+        transform: translateX(5px);
+        box-shadow: -3px 3px 15px rgba(94, 166, 217, 0.2);
+      }
+
+      .feature-title {
+        font-size: 15px;
+        color: #8ae234;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .feature-description {
+        font-size: 14px;
+        color: #d4c4d3;
+        line-height: 1.5;
+      }
+
+      .tech-section {
+        margin-bottom: 35px;
+      }
+
+      .tech-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .tech-badge {
+        background: rgba(94, 166, 217, 0.2);
+        color: #5ea6d9;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        border: 1px solid rgba(94, 166, 217, 0.4);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        transform: scale(0.8);
+        animation: popIn 0.4s ease forwards;
+      }
+
+      .tech-badge:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .tech-badge:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .tech-badge:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .tech-badge:nth-child(4) {
+        animation-delay: 0.25s;
+      }
+      .tech-badge:nth-child(5) {
+        animation-delay: 0.3s;
+      }
+      .tech-badge:nth-child(6) {
+        animation-delay: 0.35s;
+      }
+      .tech-badge:nth-child(7) {
+        animation-delay: 0.4s;
+      }
+      .tech-badge:nth-child(8) {
+        animation-delay: 0.45s;
+      }
+      .tech-badge:nth-child(9) {
+        animation-delay: 0.5s;
+      }
+
+      @keyframes popIn {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .tech-badge:hover {
+        background: rgba(138, 226, 52, 0.3);
+        border-color: #8ae234;
+        color: #8ae234;
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 5px 15px rgba(138, 226, 52, 0.3);
+      }
+
+      .impact-section {
+        background: rgba(237, 212, 0, 0.05);
+        border: 1px dashed rgba(237, 212, 0, 0.3);
+        padding: 25px;
+        margin-top: 30px;
+      }
+
+      .impact-title {
+        font-size: 16px;
+        color: #edd400;
+        font-weight: 700;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .impact-title::before {
+        content: "⚡";
+        font-size: 18px;
+      }
+
+      .impact-text {
+        font-size: 14px;
+        color: #d4c4d3;
+        line-height: 1.6;
+      }
+
+      /* ─── back button ─── */
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(94, 166, 217, 0.2);
+        color: #5ea6d9;
+        padding: 12px 25px;
+        border: 1px solid rgba(94, 166, 217, 0.4);
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: 60px;
+      }
+
+      .back-button:hover {
+        background: rgba(138, 226, 52, 0.2);
+        border-color: #8ae234;
+        color: #8ae234;
+        transform: translateX(-5px);
+        box-shadow: -5px 5px 20px rgba(138, 226, 52, 0.2);
+      }
+
+      .back-button::before {
+        content: "←";
+        font-size: 18px;
+        transition: transform 0.3s ease;
+      }
+
+      .back-button:hover::before {
+        transform: translateX(-3px);
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 100px 20px 40px;
+        }
+
+        .page-title {
+          font-size: 36px;
+        }
+
+        .project-title {
+          font-size: 24px;
+        }
+
+        .project-header,
+        .project-body {
+          padding: 25px 20px;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          padding: 20px 20px;
+        }
+
+        nav ul {
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="page-header">
+        <h1 class="page-title">My Projects</h1>
+        <p class="page-subtitle">Detailed Overview of Key Achievements</p>
+      </div>
+
+      <!-- Project 1: AI Tutoring Platform -->
+      <section class="project-section">
+        <div class="project-container">
+          <div class="project-header">
+            <div class="project-number">PROJECT 01</div>
+            <h2 class="project-title">AI Tutoring Platform</h2>
+            <p class="project-tagline">
+              Interactive Python Learning with LLM-Powered Assistance
+            </p>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Built a comprehensive AI-powered tutoring platform designed to
+              teach Python programming through an interactive, hands-on
+              approach. The platform combines structured lessons, practice
+              problems, and real-time AI tutoring to create an engaging learning
+              experience. Students can visualize programming concepts through
+              pseudocode and flowcharts, practice with guided exercises, and
+              receive personalized help from an integrated LLM assistant.
+            </p>
+
+            <div class="features-section">
+              <h3 class="section-label">Key Features</h3>
+              <div class="features-grid">
+                <div class="feature-item">
+                  <div class="feature-title">Guided Lessons</div>
+                  <div class="feature-description">
+                    Structured Python curriculum with progressive difficulty
+                    levels
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Interactive Practice</div>
+                  <div class="feature-description">
+                    Real-time code execution with instant feedback using Pyodide
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Visual Learning</div>
+                  <div class="feature-description">
+                    Pseudocode visualization and flowcharts using Graphviz
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">LLM Tutoring</div>
+                  <div class="feature-description">
+                    Personalized AI assistance powered by Ollama
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Progress Tracking</div>
+                  <div class="feature-description">
+                    MongoDB-based user progress and performance analytics
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Clean Data Pipeline</div>
+                  <div class="feature-description">
+                    NLP-based content preprocessing for quality assurance
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-section">
+              <h3 class="section-label">Technologies Used</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">MongoDB</span>
+                <span class="tech-badge">Ollama</span>
+                <span class="tech-badge">Pyodide</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">HTML/CSS</span>
+                <span class="tech-badge">RESTful APIs</span>
+                <span class="tech-badge">Graphviz</span>
+              </div>
+            </div>
+
+            <div class="impact-section">
+              <div class="impact-title">Impact & Learning</div>
+              <p class="impact-text">
+                This project was developed during my internship at ICFOSS as
+                part of their e-Governance initiatives. It enhanced my skills in
+                full-stack development, NLP data processing, and integrating
+                AI/ML models into production applications. The platform
+                demonstrates my ability to build scalable educational tools with
+                modern web technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project 2: Automatic Vehicle Speed Control System -->
+      <section class="project-section">
+        <div class="project-container">
+          <div class="project-header">
+            <div class="project-number">PROJECT 02</div>
+            <h2 class="project-title">
+              Automatic Vehicle Speed Control System
+            </h2>
+            <p class="project-tagline">
+              IoT-Based Smart Traffic Management Solution
+            </p>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Designed and implemented an ESP32-based IoT system for intelligent
+              vehicle speed management in restricted zones such as school areas,
+              hospitals, and residential neighborhoods. The system uses RFID
+              technology to detect vehicles entering controlled zones and
+              automatically limits their speed through wireless communication. A
+              comprehensive monitoring solution includes both Android and web
+              applications for real-time tracking and alert management.
+            </p>
+
+            <div class="features-section">
+              <h3 class="section-label">Key Features</h3>
+              <div class="features-grid">
+                <div class="feature-item">
+                  <div class="feature-title">Zone Detection</div>
+                  <div class="feature-description">
+                    RFID-based automatic detection of restricted zones
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Speed Control</div>
+                  <div class="feature-description">
+                    Automatic speed limitation via RF module communication
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Real-Time Monitoring</div>
+                  <div class="feature-description">
+                    Web dashboard for live vehicle tracking and zone status
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Mobile App</div>
+                  <div class="feature-description">
+                    Android application for authorities to manage and monitor
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Alert System</div>
+                  <div class="feature-description">
+                    Bluetooth-based alerts and violation notifications
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Scalable Design</div>
+                  <div class="feature-description">
+                    Modular architecture for easy zone expansion
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-section">
+              <h3 class="section-label">Technologies Used</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">ESP32</span>
+                <span class="tech-badge">RFID</span>
+                <span class="tech-badge">RF Modules</span>
+                <span class="tech-badge">Bluetooth</span>
+                <span class="tech-badge">Android</span>
+                <span class="tech-badge">HTML/CSS</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">IoT Protocols</span>
+              </div>
+            </div>
+
+            <div class="impact-section">
+              <div class="impact-title">Impact & Learning</div>
+              <p class="impact-text">
+                This project showcases my expertise in IoT development, embedded
+                systems programming, and full-stack application development. It
+                addresses a real-world problem of traffic safety in restricted
+                zones, demonstrating my ability to design end-to-end solutions
+                combining hardware and software components. The project
+                strengthened my skills in wireless communication protocols and
+                cross-platform application development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project 3: Blood Donation System -->
+      <section class="project-section">
+        <div class="project-container">
+          <div class="project-header">
+            <div class="project-number">PROJECT 03</div>
+            <h2 class="project-title">Blood Donation System</h2>
+            <p class="project-tagline">
+              Web-Based Platform Connecting Donors with Recipients
+            </p>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Developed a comprehensive web-based blood donation management
+              system to bridge the gap between blood donors and recipients. The
+              platform streamlines the entire donation process, from donor
+              registration and blood type matching to donation scheduling and
+              tracking. Built with a focus on user experience and data
+              management, the system helps healthcare facilities and blood banks
+              efficiently manage their donor database and coordinate emergency
+              blood requirements.
+            </p>
+
+            <div class="features-section">
+              <h3 class="section-label">Key Features</h3>
+              <div class="features-grid">
+                <div class="feature-item">
+                  <div class="feature-title">Donor Registration</div>
+                  <div class="feature-description">
+                    Easy signup process with comprehensive donor profiles
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Smart Search</div>
+                  <div class="feature-description">
+                    Search donors by blood type, location, and availability
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Donation Tracking</div>
+                  <div class="feature-description">
+                    Complete history of donations with dates and centers
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Responsive Design</div>
+                  <div class="feature-description">
+                    Mobile-friendly interface using Bootstrap framework
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Admin Dashboard</div>
+                  <div class="feature-description">
+                    Comprehensive management panel for blood banks
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-title">Request Management</div>
+                  <div class="feature-description">
+                    Urgent blood requirement posting and matching system
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-section">
+              <h3 class="section-label">Technologies Used</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+              </div>
+            </div>
+
+            <div class="impact-section">
+              <div class="impact-title">Impact & Learning</div>
+              <p class="impact-text">
+                This project demonstrates my proficiency in full-stack web
+                development and database design. It addresses a critical
+                healthcare need by making blood donation more accessible and
+                organized. Through this project, I gained extensive experience
+                in PHP backend development, MySQL database management, and
+                creating responsive user interfaces. The system's focus on
+                connecting people for a life-saving cause makes it particularly
+                meaningful.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <a href="portfolio.html" class="back-button">Back to Portfolio</a>
+    </main>
+  </body>
+</html>
