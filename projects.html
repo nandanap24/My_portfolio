@@ -521,12 +521,242 @@
         <h1 class="page-title">My Projects</h1>
         <p class="page-subtitle">Detailed Overview of Key Achievements</p>
       </div>
+<!-- Project 02 : English → Malayalam Machine Translation -->
 
+<section class="project-section">
+  <div class="project-container">
+
+    <div class="project-header">
+      <div class="project-number">PROJECT 01</div>
+
+      <h2 class="project-title">
+        English → Malayalam Machine Translation
+      </h2>
+
+      <p class="project-tagline">
+        Fine-tuning Meta NLLB-200 using QLoRA for Low-Resource Neural Machine Translation
+      </p>
+    </div>
+
+    <div class="project-body">
+
+      <p class="project-description">
+        Developed a Neural Machine Translation system for English → Malayalam by
+        fine-tuning Meta's NLLB-200 multilingual model using QLoRA and LoRA.
+        Built a complete end-to-end multilingual NLP pipeline including dataset
+        cleaning, semantic similarity filtering, SentencePiece tokenization,
+        parameter-efficient fine-tuning, inference, and evaluation.
+        The project focused on improving translation quality for a low-resource
+        language while minimizing GPU memory usage through 4-bit quantization.
+      </p>
+
+      <!-- Features -->
+
+      <div class="features-section">
+
+        <h3 class="section-label">
+          Key Features
+        </h3>
+
+        <div class="features-grid">
+
+          <div class="feature-item">
+            <div class="feature-title">
+              Dataset Preparation
+            </div>
+
+            <div class="feature-description">
+              Cleaned and preprocessed more than 7,000 English–Malayalam
+              parallel sentence pairs by removing duplicates, invalid samples,
+              and noisy translations.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              Semantic Filtering
+            </div>
+
+            <div class="feature-description">
+              Used LaBSE multilingual sentence embeddings and cosine similarity
+              to retain only semantically aligned sentence pairs for training.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              Efficient Fine-tuning
+            </div>
+
+            <div class="feature-description">
+              Fine-tuned Meta's NLLB-200 multilingual model using QLoRA,
+              LoRA adapters, and 4-bit quantization for memory-efficient
+              training.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              Tokenization
+            </div>
+
+            <div class="feature-description">
+              Built multilingual vocabularies using SentencePiece and prepared
+              datasets for Transformer-based sequence-to-sequence learning.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              Model Evaluation
+            </div>
+
+            <div class="feature-description">
+              Evaluated translation quality using BLEU and chrF2 metrics along
+              with qualitative comparison of generated translations.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              End-to-End Pipeline
+            </div>
+
+            <div class="feature-description">
+              Implemented preprocessing, training, inference, checkpoint
+              management, and evaluation using Hugging Face Transformers.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Technologies -->
+
+      <div class="tech-section">
+
+        <h3 class="section-label">
+          Technologies Used
+        </h3>
+
+        <div class="tech-grid">
+
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">PyTorch</span>
+          <span class="tech-badge">Transformers</span>
+          <span class="tech-badge">Hugging Face</span>
+          <span class="tech-badge">NLLB-200</span>
+          <span class="tech-badge">QLoRA</span>
+          <span class="tech-badge">LoRA</span>
+          <span class="tech-badge">BitsAndBytes</span>
+          <span class="tech-badge">SentencePiece</span>
+          <span class="tech-badge">LaBSE</span>
+          <span class="tech-badge">BLEU</span>
+          <span class="tech-badge">chrF2</span>
+          <span class="tech-badge">Kaggle</span>
+
+        </div>
+
+      </div>
+
+      <!-- Workflow -->
+
+      <div class="features-section">
+
+        <h3 class="section-label">
+          Development Workflow
+        </h3>
+
+        <div class="features-grid">
+
+          <div class="feature-item">
+            <div class="feature-title">
+              1. Data Cleaning
+            </div>
+
+            <div class="feature-description">
+              Removed duplicate, empty, and noisy bilingual sentence pairs.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              2. Similarity Validation
+            </div>
+
+            <div class="feature-description">
+              Filtered sentence pairs using multilingual semantic similarity
+              (LaBSE + Cosine Similarity).
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              3. Model Fine-tuning
+            </div>
+
+            <div class="feature-description">
+              Applied QLoRA to fine-tune NLLB-200 with reduced GPU memory
+              requirements.
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-title">
+              4. Evaluation
+            </div>
+
+            <div class="feature-description">
+              Generated translations and measured BLEU and chrF2 scores on
+              unseen test data.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Results -->
+
+      <div class="impact-section">
+
+        <div class="impact-title">
+          Project Outcome
+        </div>
+
+        <p class="impact-text">
+
+          ✔ Fine-tuned Meta NLLB-200 for English → Malayalam Translation.<br><br>
+
+          ✔ Achieved <strong>BLEU Score: 33.00</strong>.<br>
+
+          ✔ Achieved <strong>chrF2 Score: 69.33</strong>.<br><br>
+
+          ✔ Successfully implemented parameter-efficient fine-tuning using
+          QLoRA and LoRA.<br><br>
+
+          ✔ Developed an end-to-end multilingual translation pipeline covering
+          preprocessing, tokenization, model training, inference, and
+          evaluation.<br><br>
+
+          ✔ Strengthened practical expertise in Transformer architectures,
+          multilingual NLP, Hugging Face ecosystem, and Large Language Model
+          fine-tuning.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
       <!-- Project 1: AI Tutoring Platform -->
       <section class="project-section">
         <div class="project-container">
           <div class="project-header">
-            <div class="project-number">PROJECT 01</div>
+            <div class="project-number">PROJECT 02</div>
             <h2 class="project-title">AI Tutoring Platform</h2>
             <p class="project-tagline">
               Interactive Python Learning with LLM-Powered Assistance
@@ -620,7 +850,7 @@
       <section class="project-section">
         <div class="project-container">
           <div class="project-header">
-            <div class="project-number">PROJECT 02</div>
+            <div class="project-number">PROJECT 03</div>
             <h2 class="project-title">
               Automatic Vehicle Speed Control System
             </h2>
@@ -715,7 +945,7 @@
       <section class="project-section">
         <div class="project-container">
           <div class="project-header">
-            <div class="project-number">PROJECT 03</div>
+            <div class="project-number">PROJECT 04</div>
             <h2 class="project-title">Blood Donation System</h2>
             <p class="project-tagline">
               Web-Based Platform Connecting Donors with Recipients
