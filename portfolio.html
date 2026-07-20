@@ -874,13 +874,38 @@
     </nav>
 
     <main>
-      <h1 class="page-title">Portfolio</h1>
-      <p class="page-subtitle">Projects, Experience & Achievements</p>
+      <h1 class="page-title">Professional Experience & Achievements</h1>
+      <p class="page-subtitle">A collection of my professional experience, AI/ML projects, research work,
+and technical achievements in Machine Learning, Natural Language Processing,
+and Generative AI.</p>
 
       <!-- Projects Section -->
       <section class="section">
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
+        <div class="project-card">
+    <h3 class="project-title">
+        English → Malayalam Machine Translation
+    </h3>
+
+    <p class="project-description">
+        Fine-tuned Meta's NLLB-200 multilingual model using QLoRA and LoRA for
+        high-quality English–Malayalam translation. Built a complete pipeline
+        including dataset preprocessing, LaBSE similarity filtering,
+        SentencePiece tokenization, model training, and evaluation.
+    </p>
+
+    <div class="tech-stack">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">Transformers</span>
+        <span class="tech-tag">QLoRA</span>
+        <span class="tech-tag">LoRA</span>
+        <span class="tech-tag">NLLB-200</span>
+        <span class="tech-tag">LaBSE</span>
+        <span class="tech-tag">BLEU 33.00</span>
+    </div>
+</div>
           <div class="project-card">
             <h3 class="project-title">AI Tutoring Platform</h3>
             <p class="project-description">
@@ -917,24 +942,6 @@
               <span class="tech-tag">HTML/CSS/JS</span>
             </div>
           </div>
-
-          <div class="project-card">
-            <h3 class="project-title">Blood Donation System</h3>
-            <p class="project-description">
-              Developed a responsive web-based system with donor registration,
-              search functionality, and donation-tracking features to connect
-              donors with recipients efficiently.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">Bootstrap</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">PHP</span>
-              <span class="tech-tag">MySQL</span>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- Experience Section -->
@@ -946,18 +953,29 @@
             <p class="timeline-company">ICFOSS • Thiruvananthapuram, India</p>
             <p class="timeline-date">Aug 2025 - Present</p>
             <ul class="timeline-description">
-              <li>
-                Working in the e-Governance domain with a focus on developing an
-                AI Tutoring Platform
-              </li>
-              <li>
-                Performed NLP-based data cleaning, preprocessing, and dataset
-                preparation to improve model accuracy and content quality
-              </li>
-              <li>
-                Built the frontend interface for visualizing programming logic,
-                pseudocode, and Python syntax workflows
-              </li>
+              <ul class="timeline-description">
+
+<li>
+Developed multilingual NLP datasets for Large Language Model training.
+</li>
+
+<li>
+Fine-tuned transformer-based language models using QLoRA and LoRA.
+</li>
+
+<li>
+Built an English–Malayalam Machine Translation system using Meta NLLB-200.
+</li>
+
+<li>
+Worked with Hugging Face Transformers, PyTorch, Docker and Linux.
+</li>
+
+<li>
+Developed an AI-powered tutoring platform for programming education.
+</li>
+
+</ul>
             </ul>
           </div>
 
@@ -981,54 +999,82 @@
 
       <!-- Skills Section -->
       <section class="section">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3 class="skill-category-title">Programming Languages</h3>
-            <ul class="skill-list">
-              <li>Python</li>
-              <li>C</li>
-              <li>Java</li>
-            </ul>
-          </div>
+  <h2 class="section-title">Technical Skills</h2>
 
-          <div class="skill-category">
-            <h3 class="skill-category-title">Technologies</h3>
-            <ul class="skill-list">
-              <li>Machine Learning</li>
-              <li>NLP</li>
-              <li>Data Analytics</li>
-              <li>Linux Commands</li>
-              <li>Docker</li>
-            </ul>
-          </div>
+  <div class="skills-grid">
 
-          <div class="skill-category">
-            <h3 class="skill-category-title">Libraries & Frameworks</h3>
-            <ul class="skill-list">
-              <li>JavaScript</li>
-              <li>RESTful APIs</li>
-            </ul>
-          </div>
+    <!-- Programming Languages -->
+    <div class="skill-category">
+      <h3 class="skill-category-title">Programming Languages</h3>
+      <ul class="skill-list">
+        <li>Python</li>
+        <li>C</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
 
-          <div class="skill-category">
-            <h3 class="skill-category-title">Tools & Platforms</h3>
-            <ul class="skill-list">
-              <li>Git & GitHub</li>
-              <li>VS Code</li>
-              <li>Docker</li>
-            </ul>
-          </div>
+    <!-- AI & Machine Learning -->
+    <div class="skill-category">
+      <h3 class="skill-category-title">AI & Machine Learning</h3>
+      <ul class="skill-list">
+        <li>Machine Learning</li>
+        <li>Deep Learning</li>
+        <li>Natural Language Processing</li>
+        <li>Generative AI</li>
+        <li>Machine Translation</li>
+        <li>Large Language Models (LLMs)</li>
+      </ul>
+    </div>
 
-          <div class="skill-category">
-            <h3 class="skill-category-title">Databases</h3>
-            <ul class="skill-list">
-              <li>SQL</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    <!-- Libraries & Frameworks -->
+    <div class="skill-category">
+      <h3 class="skill-category-title">Libraries & Frameworks</h3>
+      <ul class="skill-list">
+        <li>PyTorch</li>
+        <li>Hugging Face Transformers</li>
+        <li>Scikit-learn</li>
+        <li>Sentence Transformers</li>
+        <li>FastAPI</li>
+        <li>REST APIs</li>
+      </ul>
+    </div>
+
+    <!-- LLM & NLP -->
+    <div class="skill-category">
+      <h3 class="skill-category-title">LLM & NLP</h3>
+      <ul class="skill-list">
+        <li>LoRA</li>
+        <li>QLoRA</li>
+        <li>NLLB-200</li>
+        <li>SentencePiece</li>
+        <li>LaBSE</li>
+      </ul>
+    </div>
+
+    <!-- Databases -->
+    <div class="skill-category">
+      <h3 class="skill-category-title">Databases</h3>
+      <ul class="skill-list">
+        <li>PostgreSQL</li>
+        <li>MongoDB</li>
+        <li>SQL</li>
+      </ul>
+    </div>
+
+    <!-- Tools & Platforms -->
+    <div class="skill-category">
+      <h3 class="skill-category-title">Tools & Platforms</h3>
+      <ul class="skill-list">
+        <li>Git & GitHub</li>
+        <li>Docker</li>
+        <li>Linux</li>
+        <li>VS Code</li>
+        <li>Kaggle</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
       <!-- Certifications Section -->
       <section class="section">
